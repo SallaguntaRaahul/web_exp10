@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Calculator</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+         <script src= "cal.js"></script>
+          
+    </head>
+    <body>
+        <fieldset style="background-color:orange">
+             <h1>Simple Calculator</h1>
+   
+    <div ng-app="CalculatorApp" ng-controller="CalculatorController">
+        <p>Enter Number 1:<input type="number" ng-model="a"></p>
+        <p>Enter Number 2:<input type="number" ng-model="b"></p>
+        <p><select ng-model="operator">
+                <option>+</option>
+                <option>*</option>
+                <option>-</option>
+                <option>/</option>
+            </select>
+        </p>
+             
+                
+        <p>Result:{{ result()}}</p>
+    </div>
+        </fieldset>
+       
+    </body>
+    
+
+</html>

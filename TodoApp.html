@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+        <script >
+            var app=angular.module("todoapp",[]);
+            app.controller("todocontroller",function($scope){
+                $scope.list=[];
+                $scope.addItems=function(){
+                    
+                    if(!$scope.add)
+                        {
+                            return;
+                        }
+                    if($scope.list.indexOf($scope.add)==-1){
+                        
+                    $scope.list.push($scope.add);
+                    $scope.add="";
+                     
+                }
+                    
+                }
+                $scope.removeitems=function($index){
+                    $scope.list.splice($index,1);
+                }
+            });
+            
+        </script>
+    </head>
+    
+    <body>
+        <fieldset style="background-color: yellow">
+        <div class="container" ng-app="todoapp" ng-controller="todocontroller">
+            <h1 style="text-align:center; background-color:azure">ToDo List App</h1>
+            <div class="searchbox" style="background-color: orange">
+                <input type="text" placeholder="Add Works" ng-model="add"> &nbsp;&nbsp;&nbsp;&nbsp;
+                <button ng-click="addItems()">Add</button>  
+                <ol>
+                    <li ng-repeat="x in list track by $index">
+                        {{x}}&nbsp;
+                        <button ng-click="removeitems($index)">Delete</button>
+                        <br><br>
+                    </li>
+               
+                </ol>
+                 
+            </div>  
+        </div>     
+        </fieldset>
+         
+    </body>
+</html>
